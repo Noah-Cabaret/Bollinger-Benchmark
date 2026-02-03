@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# C++
+*.exe
+*.o
+*.out
+build/
+
+# Data (Optionnel : si le CSV est trop gros, Git n'aime pas trop)
+/data/*.csv
+
+.DS_Store
