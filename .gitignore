@@ -11,4 +11,9 @@ build/
 # Data (Optionnel : si le CSV est trop gros, Git n'aime pas trop)
 /data/*.csv
 
+
+#macOs
 .DS_Store
+
+#Resultat
+bench_results.txt
