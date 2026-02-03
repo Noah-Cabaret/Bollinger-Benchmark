@@ -6,8 +6,8 @@ class BollingerStrategy:
     def apply(self,df):
         df["sma"] = df["close"].rolling(self.window).mean()
         df["std"] = df["close"].rolling(self.window).std()
-        df["upper"] = df["sma"] + (2 * df["std"])
-        df["lower"] = df["sma"] - (2 * df["std"])
+        df["upper"] = df["sma"] + (self.std_dev * df["std"])
+        df["lower"] = df["sma"] - (self.std_dev * df["std"])
 
         df["buy_signal"] = df["close"] < df["lower"]
         df["sell_signal"] = df["close"] > df["upper"]

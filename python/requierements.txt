@@ -1,4 +1,2 @@
 pandas
-yfinance
-matplotlib
-numpy
+time
