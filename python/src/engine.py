@@ -6,6 +6,7 @@ class BacktestEngine:
 
     def run_backtest(self, df):
         data = df.copy()
+        equity_history = []
         for index, row in data.iterrows():
             if self.position is None and row["buy_signal"]:
                 open_price = row["close"]
@@ -21,4 +22,7 @@ class BacktestEngine:
                 self.initial_balance = position_value_at_exit * (1 - self.fee)
                 self.position = None
 
-        return self.initial_balance
+            equity_history.append(self.initial_balance)
+        
+        data['equity'] = equity_history
+        return data

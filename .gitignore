@@ -8,7 +8,7 @@ __pycache__/
 *.out
 build/
 
-# Data (Optionnel : si le CSV est trop gros, Git n'aime pas trop)
+# Data 
 /data/*.csv
 
 
@@ -17,3 +17,7 @@ build/
 
 #Resultat
 bench_results.txt
+*.png
+
+#vsCode
+.vscode/
