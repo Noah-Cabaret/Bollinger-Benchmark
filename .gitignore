@@ -3,8 +3,8 @@ __pycache__/
 *.py[cod]
 
 # C++
-*.exe
-*.o
+/cpp/*.exe
+/cpp/*.o
 *.out
 build/
 

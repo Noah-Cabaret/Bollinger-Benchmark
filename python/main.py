@@ -20,12 +20,9 @@ def main():
     end_time = time.time()
 
     duration = (end_time - start_time)
-    with open("../bench_results.txt", "a") as f:
-        f.write(f"python,{duration:.6f}\n")
 
     print(f"Python Execution Time: {duration:.6f}s")
     print(f"Final balance: {df_results['equity'].iloc[-1]:.2f}$")
-    
     plot_equity_curve(df_results,balance)
     plot_signals(df_results)
 
