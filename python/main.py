@@ -19,10 +19,19 @@ def main():
     df_results = engine.run_backtest(df_with_indicators)
     end_time = time.time()
 
-    duration = (end_time - start_time)
+    duration_ms = (end_time - start_time) * 1000
+    final_balance = df_results['equity'].iloc[-1]
+    perf = ((final_balance - balance) / balance) * 100
 
-    print(f"Python Execution Time: {duration:.6f}s")
-    print(f"Final balance: {df_results['equity'].iloc[-1]:.2f}$")
+    print("\n[BACKTEST REPORT (PYTHON)]")
+    print(f"Data source     : {path}")
+    print(f"Sample size     : {len(df)} candles")
+    print("--------------------------------------------")
+    print(f"Strategy Result : {perf:.2f}%")
+    print(f"Final Capital   : {final_balance:.2f} USD")
+    print("--------------------------------------------")
+    print(f"Engine Latency  : {duration_ms:.3f} ms")
+    print("")
     plot_equity_curve(df_results,balance)
     plot_signals(df_results)
 

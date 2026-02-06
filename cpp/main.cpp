@@ -34,7 +34,7 @@ int main() {
     
     double final_balance = engine.getFinalBalance();
     double perf = ((final_balance - capital_depart) / capital_depart) * 100.0;
-    std::cout << "\n[BACKTEST REPORT]" << std::endl;
+    std::cout << "\n[BACKTEST REPORT C++]" << std::endl;
     std::cout << "Data source     : " << path << std::endl;
     std::cout << "Sample size     : " << dataset.size() << " candles" << std::endl;
     std::cout << "--------------------------------------------" << std::endl;
