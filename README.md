@@ -11,7 +11,8 @@ L'algorithme utilise les principes de retour à la moyenne (Mean Reversion) :
 
 
 ## Architecture du Projet
-Le projet est structuré de manière modulaire pour garantir que les deux langages traitent exactement la même logique métier :
+Le projet est structuré de manière modulaire pour garantir que les deux langages traitent exactement la même logique métier.
+> **Note :** L'implémentation repose sur le **Design Pattern Strategy**, rendant le système nativement compatible avec n'importe quelle nouvelle stratégie de trading sans modification du cœur du moteur.
 
 - `/python` : Implémentation utilisant Pandas pour les calculs vectorisés.
 - `/cpp` : Implémentation native (STL) pour une performance brute sans overhead.

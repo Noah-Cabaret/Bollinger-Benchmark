@@ -1,4 +1,11 @@
-class BollingerStrategy:
+from abc import ABC, abstractmethod
+
+class Strategy(ABC):
+    @abstractmethod
+    def apply(self,df):
+        pass
+
+class BollingerStrategy(Strategy):
     def __init__(self, window = 20, std_dev = 2.0):
         self.window = window
         self.std_dev = std_dev

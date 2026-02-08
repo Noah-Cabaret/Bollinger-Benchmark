@@ -1,16 +1,16 @@
-#include "Strategy.hpp"
+#include "BollingerStrategy.hpp"
 #include <cmath>
 
-Strategy::Strategy(int window, double std_dev) : window(window), std_dev(std_dev){}
+BollingerStrategy::BollingerStrategy(int window, double std_dev) : window(window), std_dev(std_dev){}
 
-std::vector<Candle>& Strategy::apply(std::vector<Candle> &dataset){
+std::vector<Candle>& BollingerStrategy::apply(std::vector<Candle> &dataset){
     calculateSMA(dataset);
     calculateBands(dataset);
     updateSignals(dataset);
     return dataset;
 }
 
-void Strategy::calculateSMA(std::vector<Candle> &dataset){
+void BollingerStrategy::calculateSMA(std::vector<Candle> &dataset){
     for(int i = (window - 1); i < dataset.size();i++){
         double sum = 0.0;
         for(int j = i - (window -1); j <= i; j++){
@@ -20,7 +20,7 @@ void Strategy::calculateSMA(std::vector<Candle> &dataset){
     }
 }
 
-void Strategy::calculateBands(std::vector<Candle> &dataset){
+void BollingerStrategy::calculateBands(std::vector<Candle> &dataset){
     for(int i = (window - 1); i < dataset.size();i++){
         double current_sma = dataset[i].sma;
         double sum_sq_diff = 0.0;
@@ -37,7 +37,7 @@ void Strategy::calculateBands(std::vector<Candle> &dataset){
 
 }
 
-void Strategy::updateSignals(std::vector<Candle> &dataset){
+void BollingerStrategy::updateSignals(std::vector<Candle> &dataset){
     for(int i = (window - 1); i < dataset.size();i++){
         if(dataset[i].close < dataset[i].lower_band){
             dataset[i].buy_signal = true;

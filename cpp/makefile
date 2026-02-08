@@ -4,7 +4,7 @@ CXX = g++
 
 CXXFLAGS = -std=c++17 -I include -O3
 
-SRCS = main.cpp src/DataLoader.cpp src/Strategy.cpp src/Engine.cpp
+SRCS = main.cpp src/DataLoader.cpp src/BollingerStrategy.cpp src/Engine.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

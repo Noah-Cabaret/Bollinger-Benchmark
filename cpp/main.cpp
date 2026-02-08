@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <chrono>  
 #include "DataLoader.hpp"
-#include "Strategy.hpp"
+#include "BollingerStrategy.hpp"
 #include "Engine.hpp"
 #include "Candle.hpp"
 
@@ -22,8 +22,8 @@ int main() {
     }
 
     auto start = std::chrono::high_resolution_clock::now();
-    Strategy strat(20, 2.0);
-    strat.apply(dataset); 
+    IStrategy* strat = new BollingerStrategy(20, 2.0);
+    strat->apply(dataset);
 
     Engine engine(capital_depart, frais);
     engine.run_backtester(dataset);
@@ -43,5 +43,6 @@ int main() {
     std::cout << "--------------------------------------------" << std::endl;
     std::cout << "Engine Latency  : " << std::fixed << std::setprecision(3) << diff.count() * 1000.0 << " ms" << std::endl;
     std::cout << std::endl;
+    delete strat;
     return 0;
 }
