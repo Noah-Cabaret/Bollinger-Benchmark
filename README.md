@@ -57,3 +57,8 @@ cd cpp
 make
 ./backtest_cpp
 ```
+
+**3. Exécution des deux programmes**
+```bash
+./run_run_benchmark.sh
+```
